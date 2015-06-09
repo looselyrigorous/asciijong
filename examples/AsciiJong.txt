@@ -1,0 +1,53 @@
+-- Design Guidelines --
+--- ASCII  Art Mode ---
+
+Single Tile:
+
+  ___
+/|   |
+ | P |
+ |___|
+/___/
+
+
+Stacked Tiles:
+    ___
+  /|   |
+/| | R |
+ | |___| 
+ |/___/
+/___/
+
+Tiles of different height next to each other:
+              ___
+        ___ /|   |__
+  ___ /|   | | G |  |__
+/|   | | X | |___|A |  | 
+ | F | |___|/___/___|X |
+ |___|/___/___/____/___|
+/___/___/___/____/____/
+
+
+Tiles of different height including depth:
+              ___
+        ___ /|   |__
+  ___ /|   | | G |  |__
+/|   | | X | |___|A |  | 
+ | F | |___|/___/___|X |
+ |___|/___/___/____/___|
+/|   |___/___/____/___/
+ | Q |
+ |___|
+/___/
+
+
+Tiles in different coordinate offsets:
+
+  ___
+/|   |
+ | A |___
+ |___|   |
+/|   | V |
+ | B |___|
+ |___|__/
+/___/
