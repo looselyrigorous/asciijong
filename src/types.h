@@ -63,8 +63,11 @@ int tilesMatch(board_t *board, tile_t *a, tile_t *b);
 
 /*
  *	Add a tile to the specified board.
+ *
+ *  This function  returns  the  newly
+ *  added tile.
  */
-void addTile(board_t *board, tile_t *tile);
+tile_t *addTile(board_t *board, tile_t *tile);
 
 /*
  *	Remove a tile from a board.
