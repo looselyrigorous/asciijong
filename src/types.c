@@ -90,6 +90,7 @@ tile_t *addTile(board_t *board, tile_t *tile){
     if (tmp == NULL) {
         board.begin = malloc(1 * sizeof(tile_t));
         assert(board.begin != NULL);
+        board.begin.next = NULL;
         return board.begin;
     }
     
@@ -99,6 +100,7 @@ tile_t *addTile(board_t *board, tile_t *tile){
     
     tmp.next = malloc(1 * sizeof(tile_t));
     assert(tmp.next != NULL);
+    tmp.next.next = NULL;
     return board.begin;
     
 }
@@ -106,7 +108,36 @@ tile_t *addTile(board_t *board, tile_t *tile){
 /*
  *	Remove a tile from a board.
  */
-void rmTile(board_t *b, tile_t *tile);
+void rmTile(board_t *board, tile_t *tile){
+    tile_t *tmp, *before;
+    
+    tmp = board.begin;
+    before = board.begin;
+    
+    if (tmp == NULL) {
+        return;
+    }
+    
+    while (before != NULL && tmp != NULL) {
+        before = tmp;
+        tmp = before.next;
+        
+        if (tmp != NULL && tmp == tile) {
+            break;
+        }
+    }
+    
+    if (tmp.next == NULL) {
+        before.next = NULL;
+        free(tmp);
+        return;
+    }
+    
+    before.next = tmp.next;
+    free(tmp);
+    return;
+    
+}
 
 /*
  *	Get  the  tile  at  the  specified

@@ -72,7 +72,7 @@ tile_t *addTile(board_t *board, tile_t *tile);
 /*
  *	Remove a tile from a board.
  */
-void rmTile(board_t *b, tile_t *tile);
+void rmTile(board_t *board, tile_t *tile);
 
 /*
  *	Get  the  tile  at  the  specified
