@@ -6,3 +6,5 @@
 tile_t *getTileFromUser(void);
 
 void refreshBoard(board_t *b, tile_t hl);
+
+void showErrorMessageToUser(const char *errormsg);
