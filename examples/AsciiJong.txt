@@ -51,3 +51,13 @@ Tiles in different coordinate offsets:
 | | B |___|
 | |___|__/
 |/___/
+
+Stacked tiles in front of other tile:
+   ___
+ /|   |
+| | B_|_
+| |/|   |
+|/| | A |
+| | |___|
+| |/___/
+|/____/
