@@ -93,7 +93,19 @@ tile_t *getTopTile(board_t *board, tile_t *tile);
  *	The function returns 1 if the  are
  *	of the same type, or 0 otherwise.
  */
-int tilesMatch(board_t *board, tile_t *a, tile_t *b);
+int tilesMatch(board_t *board, tile_t *a, tile_t *b){
+    assert(board != NULL);
+    assert(a != NULL);
+    assert(b != NULL);
+    assert(a.ttype < TotalTileValues);
+    assert(b.ttype < TotalTileValues);
+    
+    if (a.ttype == b.ttype) {
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 /*
  *	Add a tile to the specified board.
