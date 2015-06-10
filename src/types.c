@@ -40,7 +40,22 @@ board_t *readBoardFromFile(FILE *f);
  *	The function returns 1 if the tile
  *	can be removed or 0 otherwise.
  */
-int canRemoveTile(board_t *board, tile_t *tile);
+int canRemoveTile(board_t *board, tile_t *tile){
+    
+    assert(board != NULL);
+    assert(tile != NULL);
+    
+    if (getTopTile(board, tile) == NULL) {
+        if (getLeftTile(board, tile) == NULL || getRightTile(board, tile) == NULL) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+    
+}
 
 /*
  *	Get the tile to the  left  of  the
