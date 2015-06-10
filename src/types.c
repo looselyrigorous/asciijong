@@ -196,7 +196,38 @@ tile_t *getTileAt(board_t *board, double x, double y){
  *	Returns a  new  board_t  with  all
  *	tiles of that specific type.
  */
-board_t *getTilesOfType(board_t *board, unsigned int ttype);
+board_t *getTilesOfType(board_t *board, unsigned int ttype){
+    
+    board_t *new;
+    tile_t *search;
+    tile_t *end;
+    
+    assert(board != NULL);
+    assert(ttype < TotalTileValues);
+    
+    new = malloc(1 * sizeof(board_t));
+    assert(new != NULL);
+    new.begin = NULL;
+    end = NULL;
+    
+    search = board.begin;
+    
+    while (search != NULL) {
+        if (search.ttype == ttype) {
+            if (end == NULL) {
+                new.begin = copyTile(search);
+                end = new.begin;
+            }else{
+                end.next = copyTile(search);
+                end = end.next;
+            }
+        }
+        search = search.next;
+    }
+    
+    return new;
+    
+}
 
 /*
  *	Check if a tile entered  from  the
