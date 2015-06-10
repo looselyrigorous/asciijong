@@ -56,7 +56,7 @@ tile_t *getTopTile(board_t *board, tile_t *tile);
  *	Check if two tiles are of the same
  *	type in a board.
  *
- *	The function returns 1 if the  are
+ *	The function returns 1 if they are
  *	of the same type, or 0 otherwise.
  */
 int tilesMatch(board_t *board, tile_t *a, tile_t *b);
