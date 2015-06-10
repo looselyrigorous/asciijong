@@ -118,4 +118,12 @@ char *getTileName(tile_t *tile);
  */
 tile_t *getHighestTileInPosition(board_t *board, double x, double y);
 
+/*
+ *  Create a new tile from an existing
+ *  with the same properties.
+ *
+ *  Returns the new tile.
+ */
+tile_t *copyTile(tile_t *tile);
+
 #endif

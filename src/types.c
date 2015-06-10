@@ -225,6 +225,7 @@ board_t *getTilesOfType(board_t *board, unsigned int ttype){
         search = search.next;
     }
     
+    end.next = NULL;
     return new;
     
 }
@@ -274,5 +275,35 @@ tile_t *getHighestTileInPosition(board_t *board, double x, double y){
     }
     
     return NULL;
+    
+}
+
+/*
+ *  Create a new tile from an existing
+ *  with the same properties.
+ *
+ *  Returns the new tile.
+ */
+tile_t *copyTile(tile_t *tile){
+    
+    tile_t *new;
+    
+    assert(tile != NULL);
+    
+    new = malloc(1 * tile_t);
+    assert(new != NULL);
+    
+    assert(tile.x >= 0.0);
+    new.x = tile.x;
+    assert(tile.y >= 0.0);
+    new.y = tile.y;
+
+    new.height = tile.height;
+    assert(tile.ttype < TotalTileValues);
+    new.ttype = tile.ttype;
+    
+    new.next = tile.next;
+    
+    return new;
     
 }
