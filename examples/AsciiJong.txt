@@ -61,3 +61,15 @@ Stacked tiles in front of other tile:
 | | |___|
 | |/___/
 |/____/
+
+More stacked tiles in front of other tile:
+
+   ___
+ /|   |___
+| | B/|   |
+| |/| | A |
+|/| | |___|
+| | |/___/
+| |/____/
+|/_____/
+
