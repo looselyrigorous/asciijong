@@ -330,3 +330,13 @@ void deleteBoard(board_t *board){
     free(board);
     
 }
+
+/*
+ *  Get a tile's height.
+ *
+ *  Returns a tile's height.
+ */
+int getTileHeight(tile_t *tile){
+    assert(tile != NULL);
+    return tile.height;
+}

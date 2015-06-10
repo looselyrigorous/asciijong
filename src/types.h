@@ -132,4 +132,11 @@ tile_t *copyTile(tile_t *tile);
  */
 void deleteBoard(board_t *board);
 
+/*
+ *  Get a tile's height.
+ *
+ *  Returns a tile's height.
+ */
+int getTileHeight(tile_t *tile);
+
 #endif
