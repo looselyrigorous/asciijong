@@ -3,14 +3,15 @@
 #include "assert.h"
 #include "config.h"
 
+
 /*
  *	A basic tile
  */
 
 struct tile_s{
-    double x;				/* X Coordinate */
-    double y;				/* Y Coordinate */
-    int height;				/* Z Coordinate */
+    coordt_t x;				/* X Coordinate */
+    coordt_t y;				/* Y Coordinate */
+    coordt_t height;		/* Z Coordinate */
     unsigned int ttype;		/* Index of tile type in config array */
     tile_t *next;			/* The next tile in the single linked list */
 };
@@ -28,13 +29,14 @@ struct board_s{
  */
 
 struct dimensions_s{
-    double minX;
-    double minY;
-    double maxX;
-    double maxY;
-    int minZ;
-    int maxZ;
+    coordt_t minX;
+    coordt_t minY;
+    coordt_t maxX;
+    coordt_t maxY;
+    coordt_t minZ;
+    coordt_t maxZ;
 };
+
 
 /*
  *	Read a Mahjong Board from  a  file
@@ -193,7 +195,7 @@ void rmTile(board_t *board, tile_t *tile){
  *	This function returns the tile, or
  *	NULL if it doesn't exist.
  */
-tile_t *getTileAt(board_t *board, double x, double y){
+tile_t *getTileAt(board_t *board, coordt_t x, coordt_t y){
     
     assert(board != NULL);
     assert(x >= 0.0);
@@ -251,7 +253,7 @@ board_t *getTilesOfType(board_t *board, unsigned int ttype){
  *	Returns the tile_r if it is valid,
  *	otherwise returns NULL.
  */
-tile_t *validateTileFromUser(board_t *board, double x, double y);
+tile_t *validateTileFromUser(board_t *board, coordt_t x, coordt_t y);
 
 /*
  *	Get  the  tile's  value  from  the
@@ -270,7 +272,7 @@ char *getTileName(tile_t *tile){
  *
  *  Returns the highest tile.
  */
-tile_t *getHighestTileInPosition(board_t *board, double x, double y){
+tile_t *getHighestTileInPosition(board_t *board, coordt_t x, coordt_t y){
     
     tile_t *search;
     
@@ -349,7 +351,7 @@ void deleteBoard(board_t *board){
  *
  *  Returns a tile's height.
  */
-int getTileHeight(tile_t *tile){
+coordt_t getTileHeight(tile_t *tile){
     assert(tile != NULL);
     return tile.height;
 }
@@ -362,8 +364,7 @@ int getTileHeight(tile_t *tile){
  */
 dimensions_t getBoardDimensions(board_t *board){
     
-    double minX = 0.0, maxX = 0.0, minY = 0.0, maxY = 0.0;
-    int minZ = 0, maxZ = 0;
+    coordt_t minX = 0.0, maxX = 0.0, minY = 0.0, maxY = 0.0, minZ = 0.0, maxZ = 0.0;
     tile_t *search;
     dimensions_t *ret;
     
@@ -426,7 +427,7 @@ dimensions_t getBoardDimensions(board_t *board){
  *
  *  Returns the minimum X value;
  */
-double getMinimumX(dimensions_t *dim);
+coordt_t getMinimumX(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -434,7 +435,7 @@ double getMinimumX(dimensions_t *dim);
  *
  *  Returns the maximum X value;
  */
-double getMaximumX(dimensions_t *dim);
+coordt_t getMaximumX(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  minimum
@@ -442,7 +443,7 @@ double getMaximumX(dimensions_t *dim);
  *
  *  Returns the minimum Y value;
  */
-double getMinimumY(dimensions_t *dim);
+coordt_t getMinimumY(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -450,7 +451,7 @@ double getMinimumY(dimensions_t *dim);
  *
  *  Returns the maximum Y value;
  */
-double getMaximumY(dimensions_t *dim);
+coordt_t getMaximumY(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  minimum
@@ -458,7 +459,7 @@ double getMaximumY(dimensions_t *dim);
  *
  *  Returns the minimum height;
  */
-int getMinimumHeight(dimensions_t *dim);
+coordt_t getMinimumHeight(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -466,4 +467,4 @@ int getMinimumHeight(dimensions_t *dim);
  *
  *  Returns the maximum height;
  */
-int getMaximumHeight(dimensions_t *dim);
+coordt_t getMaximumHeight(dimensions_t *dim);

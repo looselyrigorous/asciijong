@@ -4,6 +4,7 @@
 typedef struct tile_s tile_t;
 typedef struct board_s board_t;
 typedef struct dimensions_s dimensions_t;
+typedef double coordt_t;
 
 /* 
  *	Read a Mahjong Board from  a  file
@@ -82,7 +83,7 @@ void rmTile(board_t *b, tile_t *tile);
  *	This function returns the tile, or
  *	NULL if it doesn't exist.
  */
-tile_t *getTileAt(board_t *board, double x, double y);
+tile_t *getTileAt(board_t *board, coordt_t x, coordt_t y);
 
 /*
  *	Get all tiles of  a  specific type
@@ -101,7 +102,7 @@ board_t *getTilesOfType(board_t *board, unsigned int ttype);
  *	Returns the tile_r if it is valid,
  *	otherwise returns NULL.
  */
-tile_t *validateTileFromUser(board_t *board, double x, double y);
+tile_t *validateTileFromUser(board_t *board, coordt_t x, coordt_t y);
 
 /*
  *	Get  the  tile's  value  from  the 
@@ -117,7 +118,7 @@ char *getTileName(tile_t *tile);
  *
  *  Returns the highest tile.
  */
-tile_t *getHighestTileInPosition(board_t *board, double x, double y);
+tile_t *getHighestTileInPosition(board_t *board, coordt_t x, coordt_t y);
 
 /*
  *  Create a new tile from an existing
@@ -138,7 +139,7 @@ void deleteBoard(board_t *board);
  *
  *  Returns a tile's height.
  */
-int getTileHeight(tile_t *tile);
+coordt_t getTileHeight(tile_t *tile);
 
 /*
  *  Get a board's dimensions.
@@ -154,7 +155,7 @@ dimensions_t getBoardDimensions(board_t *board);
  *
  *  Returns the minimum X value;
  */
-double getMinimumX(dimensions_t *dim);
+coordt_t getMinimumX(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -162,7 +163,7 @@ double getMinimumX(dimensions_t *dim);
  *
  *  Returns the maximum X value;
  */
-double getMaximumX(dimensions_t *dim);
+coordt_t getMaximumX(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  minimum
@@ -170,7 +171,7 @@ double getMaximumX(dimensions_t *dim);
  *
  *  Returns the minimum Y value;
  */
-double getMinimumY(dimensions_t *dim);
+coordt_t getMinimumY(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -178,7 +179,7 @@ double getMinimumY(dimensions_t *dim);
  *
  *  Returns the maximum Y value;
  */
-double getMaximumY(dimensions_t *dim);
+coordt_t getMaximumY(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  minimum
@@ -186,7 +187,7 @@ double getMaximumY(dimensions_t *dim);
  *
  *  Returns the minimum height;
  */
-int getMinimumHeight(dimensions_t *dim);
+coordt_t getMinimumHeight(dimensions_t *dim);
 
 /*
  *  Get a dimension object's  maximum
@@ -194,7 +195,7 @@ int getMinimumHeight(dimensions_t *dim);
  *
  *  Returns the maximum height;
  */
-int getMaximumHeight(dimensions_t *dim);
+coordt_t getMaximumHeight(dimensions_t *dim);
 
 
 #endif
