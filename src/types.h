@@ -3,6 +3,7 @@
 /* Tile and Board Types */
 typedef struct tile_s tile_t;
 typedef struct board_s board_t;
+typedef struct dimensions_s dimensions_t;
 
 /* 
  *	Read a Mahjong Board from  a  file

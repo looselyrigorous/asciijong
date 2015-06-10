@@ -24,6 +24,17 @@ struct board_s{
 };
 
 /*
+ *  A Dimensions Object
+ */
+
+struct dimensions_s{
+    double minX;
+    double minY;
+    double maxX;
+    double maxY;
+};
+
+/*
  *	Read a Mahjong Board from  a  file
  *	and return it in a board_t format.
  *
