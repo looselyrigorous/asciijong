@@ -307,3 +307,26 @@ tile_t *copyTile(tile_t *tile){
     return new;
     
 }
+
+/*
+ *  Remove a board and delete all its
+ *  elements.
+ */
+void deleteBoard(board_t *board){
+    
+    tile_t *search, *next;
+    
+    assert(board != NULL);
+    
+    search = board.begin;
+    next = search.next;
+    
+    while (search != NULL) {
+        next = search.next;
+        free(search);
+        search = next;
+    }
+    
+    free(board);
+    
+}

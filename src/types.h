@@ -126,4 +126,10 @@ tile_t *getHighestTileInPosition(board_t *board, double x, double y);
  */
 tile_t *copyTile(tile_t *tile);
 
+/*
+ *  Remove a board and delete all its
+ *  elements.
+ */
+void deleteBoard(board_t *board);
+
 #endif
