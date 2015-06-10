@@ -147,7 +147,7 @@ coordt_t getTileHeight(tile_t *tile);
  *  Returns      a      corresponding
  *  dimensions object.
  */
-dimensions_t getBoardDimensions(board_t *board);
+dimensions_t *getBoardDimensions(board_t *board);
 
 /*
  *  Get a dimension object's  minimum
