@@ -1,6 +1,7 @@
 #include "type.h"
 #include "stdlib.h"
 #include "assert.h"
+#include "config.h"
 
 /*
  *	A basic tile
@@ -175,7 +176,11 @@ tile_t *validateTileFromUser(double x, double y);
  *	Get  the  tile's  value  from  the
  *	configuration array.
  */
-char *getTileName(tile_t *tile);
+char *getTileName(tile_t *tile){
+    assert(tile != NULL);
+    assert(tile.ttype < TotalTileValues);
+    return TileValues[tile.ttype];
+}
 
 
 /*
