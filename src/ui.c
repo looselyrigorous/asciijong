@@ -6,11 +6,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <assert.h>
+
 #include "ui.h"
-
 #include "types.h"
-
-#define ever (;;)
 
 void showErrorMessageToUser(const char *errormsg) {
 	printf("%s\n", errormsg);
@@ -19,8 +18,8 @@ void showErrorMessageToUser(const char *errormsg) {
 
 tile_t *getTileFromUser(board_t *b) {
 	coordt_t x=0.0, y=0.0;
-	tile_t tile;
-	for ever {
+	tile_t *tile;
+	while(1) {
 		printf("\nEnter tile coordinates separated by comma: ");
 		scanf("%lf,%lf", &x, &y);
 		tile = validateTileFromUser(b,x,y);
@@ -32,13 +31,12 @@ tile_t *getTileFromUser(board_t *b) {
 void refreshBoard(board_t *b, tile_t *hl) {
 	coordt_t x=0.0, y=0.0;
 	int tmp=0;
-
-	dimensions_t dim;
-	tile_t tile, tile_up, tile_down;
+	dimensions_t *dim;
+	tile_t *tile, *tile_up, *tile_down;
 	char *l1=NULL, *l2=NULL, *l3=NULL,
 		 *l4=NULL, *l5=NULL;
 
-	dim = getBoardDimensions(dim);
+	dim = getBoardDimensions(b);
 	
 	/* Memory allocation */
 	tmp = (int) getMaximumX(dim);
@@ -47,6 +45,8 @@ void refreshBoard(board_t *b, tile_t *hl) {
 	l3 = malloc(sizeof(char) * tmp);
 	l4 = malloc(sizeof(char) * tmp);
 	l5 = malloc(sizeof(char) * tmp);
+	assert(l1 && l2 && l3 && l4 && l5);
+
 
 	/* Refresh sequence */
 	printf("\e[1;1H\e[2J"); /* Clears screen */
@@ -71,7 +71,7 @@ void refreshBoard(board_t *b, tile_t *hl) {
 			} else {
 				if(tile_up != NULL) {
 					l1 = strcat(l1, "| ");
-					l1 = strcat(l1, getTileName(tile));
+					l1 = strcat(l1, getTileName(tile_up));
 					l1 = strcat(l1, " |");
 					l2 = strcat(l2, "|   |");
 					l3 = strcat(l3, "+---+");
@@ -81,7 +81,7 @@ void refreshBoard(board_t *b, tile_t *hl) {
 					l3 = strcat(l3, "     ");
 				}
 
-				else if(tile_down != NULL) {
+				if(tile_down != NULL) {
 					l4 = strcat(l4, "+---+");
 					l5 = strcat(l5, "|   |");
 				} else {
