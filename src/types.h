@@ -140,4 +140,12 @@ void deleteBoard(board_t *board);
  */
 int getTileHeight(tile_t *tile);
 
+/*
+ *  Get a board's dimensions.
+ *
+ *  Returns      a      corresponding
+ *  dimensions object.
+ */
+dimensions_t getBoardDimensions(board_t *board);
+
 #endif

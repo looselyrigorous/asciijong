@@ -32,6 +32,8 @@ struct dimensions_s{
     double minY;
     double maxX;
     double maxY;
+    int minZ;
+    int maxZ;
 };
 
 /*
@@ -350,4 +352,70 @@ void deleteBoard(board_t *board){
 int getTileHeight(tile_t *tile){
     assert(tile != NULL);
     return tile.height;
+}
+
+/*
+ *  Get a board's dimensions.
+ *
+ *  Returns      a      corresponding
+ *  dimensions object.
+ */
+dimensions_t getBoardDimensions(board_t *board){
+    
+    double minX = 0.0, maxX = 0.0, minY = 0.0, maxY = 0.0;
+    int minZ = 0, maxZ = 0;
+    tile_t *search;
+    dimensions_t *ret;
+    
+    assert(board != NULL);
+    
+    search = board.begin;
+    
+    while (search != NULL) {
+        if (search == board.begin) {
+            minX = search.x;
+            maxX = search.x;
+            minY = search.y;
+            maxY = search.y;
+            minZ = search.height;
+            maxZ = search.height;
+        }else{
+            if (search.x < minX) {
+                minX = search.x;
+            }
+            if (search.x > maxX) {
+                maxX = search.x;
+            }
+            if (search.y < minY) {
+                minY = search.y;
+            }
+            if (search.y > maxY) {
+                maxY = search.y;
+            }
+            if (search.height < minZ) {
+                minZ = search.height;
+            }
+            if (search.height > maxZ) {
+                maxZ = search.height;
+            }
+        }
+        search = search.next;
+    }
+    
+    assert(minX >= 0.0);
+    assert(minY >= 0.0);
+    assert(minZ >= 0);
+    
+    ret = malloc(1 * sizeof(dimensions_t));
+    assert(ret != NULL);
+    
+    ret.minX = minX;
+    ret.maxX = maxX;
+    ret.minY = minY;
+    ret.maxY = maxY;
+    ret.minZ = minZ;
+    ret.maxZ = maxZ;
+    
+    return ret;
+    
 }
