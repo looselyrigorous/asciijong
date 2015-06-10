@@ -148,4 +148,53 @@ int getTileHeight(tile_t *tile);
  */
 dimensions_t getBoardDimensions(board_t *board);
 
+/*
+ *  Get a dimension object's  minimum
+ *  X value
+ *
+ *  Returns the minimum X value;
+ */
+double getMinimumX(dimensions_t *dim);
+
+/*
+ *  Get a dimension object's  maximum
+ *  X value
+ *
+ *  Returns the maximum X value;
+ */
+double getMaximumX(dimensions_t *dim);
+
+/*
+ *  Get a dimension object's  minimum
+ *  Y value
+ *
+ *  Returns the minimum Y value;
+ */
+double getMinimumY(dimensions_t *dim);
+
+/*
+ *  Get a dimension object's  maximum
+ *  Y value
+ *
+ *  Returns the maximum Y value;
+ */
+double getMaximumY(dimensions_t *dim);
+
+/*
+ *  Get a dimension object's  minimum
+ *  height
+ *
+ *  Returns the minimum height;
+ */
+int getMinimumHeight(dimensions_t *dim);
+
+/*
+ *  Get a dimension object's  maximum
+ *  height
+ *
+ *  Returns the maximum height;
+ */
+int getMaximumHeight(dimensions_t *dim);
+
+
 #endif
