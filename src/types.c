@@ -86,6 +86,9 @@ int tilesMatch(board_t *board, tile_t *a, tile_t *b);
 tile_t *addTile(board_t *board, tile_t *tile){
     tile_t *tmp;
     
+    assert(board != NULL);
+    assert(tile != NULL);
+    
     tmp = board.begin;
     
     if (tmp == NULL) {
@@ -111,6 +114,9 @@ tile_t *addTile(board_t *board, tile_t *tile){
  */
 void rmTile(board_t *board, tile_t *tile){
     tile_t *tmp, *before;
+    
+    assert(board != NULL);
+    assert(tile != NULL);
     
     tmp = board.begin;
     before = board.begin;
@@ -149,6 +155,9 @@ void rmTile(board_t *board, tile_t *tile){
  */
 tile_t *getTileAt(board_t *board, double x, double y){
     
+    assert(board != NULL);
+    assert(x >= 0.0);
+    assert(y >= 0.0);
     return getHighestTileInPosition(board, x, y);
     
 }
@@ -192,6 +201,10 @@ char *getTileName(tile_t *tile){
 tile_t *getHighestTileInPosition(board_t *board, double x, double y){
     
     tile_t *search;
+    
+    assert(board != NULL);
+    assert(x >= 0.0);
+    assert(y >= 0.0);
     
     while (search != NULL) {
         if (search.x == x && search.y = y) {
