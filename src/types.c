@@ -184,4 +184,19 @@ char *getTileName(tile_t *tile);
  *
  *  Returns the highest tile.
  */
-tile_t *getHighestTileInPosition(board_t *board, double x, double y);
+tile_t *getHighestTileInPosition(board_t *board, double x, double y){
+    
+    tile_t *search;
+    
+    while (search != NULL) {
+        if (search.x == x && search.y = y) {
+            if (getTopTile == NULL) {
+                return search;
+            }
+        }
+        search = search.next;
+    }
+    
+    return NULL;
+    
+}
