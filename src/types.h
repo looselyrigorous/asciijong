@@ -72,7 +72,7 @@ tile_t *addTile(board_t *board, tile_t *tile);
 /*
  *	Remove a tile from a board.
  */
-void rmTile(board_t *board, tile_t *tile);
+void rmTile(board_t *b, tile_t *tile);
 
 /*
  *	Get  the  tile  at  the  specified
@@ -105,6 +105,17 @@ tile_t *validateTileFromUser(double x, double y);
 /*
  *	Get  the  tile's  value  from  the 
  *	configuration array.
+ *
+ *  Returns the tile's value.
  */
+char *getTileName(tile_t *tile);
+
+/*
+ *  Get  the  highest  tile  in   this
+ *  position.
+ *
+ *  Returns the highest tile.
+ */
+tile_t *getHighestTileInPosition(board_t *board, double x, double y);
 
 #endif

@@ -171,3 +171,13 @@ tile_t *validateTileFromUser(double x, double y);
  *	Get  the  tile's  value  from  the
  *	configuration array.
  */
+char *getTileName(tile_t *tile);
+
+
+/*
+ *  Get  the  highest  tile  in   this
+ *  position.
+ *
+ *  Returns the highest tile.
+ */
+tile_t *getHighestTileInPosition(board_t *board, double x, double y);
