@@ -362,7 +362,7 @@ coordt_t getTileHeight(tile_t *tile){
  *  Returns      a      corresponding
  *  dimensions object.
  */
-dimensions_t getBoardDimensions(board_t *board){
+dimensions_t *getBoardDimensions(board_t *board){
     
     coordt_t minX = 0.0, maxX = 0.0, minY = 0.0, maxY = 0.0, minZ = 0.0, maxZ = 0.0;
     tile_t *search;
