@@ -427,7 +427,10 @@ dimensions_t getBoardDimensions(board_t *board){
  *
  *  Returns the minimum X value;
  */
-coordt_t getMinimumX(dimensions_t *dim);
+coordt_t getMinimumX(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.minX;
+}
 
 /*
  *  Get a dimension object's  maximum
@@ -435,7 +438,10 @@ coordt_t getMinimumX(dimensions_t *dim);
  *
  *  Returns the maximum X value;
  */
-coordt_t getMaximumX(dimensions_t *dim);
+coordt_t getMaximumX(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.maxX;
+}
 
 /*
  *  Get a dimension object's  minimum
@@ -443,7 +449,10 @@ coordt_t getMaximumX(dimensions_t *dim);
  *
  *  Returns the minimum Y value;
  */
-coordt_t getMinimumY(dimensions_t *dim);
+coordt_t getMinimumY(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.minY;
+}
 
 /*
  *  Get a dimension object's  maximum
@@ -451,7 +460,10 @@ coordt_t getMinimumY(dimensions_t *dim);
  *
  *  Returns the maximum Y value;
  */
-coordt_t getMaximumY(dimensions_t *dim);
+coordt_t getMaximumY(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.maxY;
+}
 
 /*
  *  Get a dimension object's  minimum
@@ -459,7 +471,10 @@ coordt_t getMaximumY(dimensions_t *dim);
  *
  *  Returns the minimum height;
  */
-coordt_t getMinimumHeight(dimensions_t *dim);
+coordt_t getMinimumHeight(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.minZ;
+}
 
 /*
  *  Get a dimension object's  maximum
@@ -467,4 +482,7 @@ coordt_t getMinimumHeight(dimensions_t *dim);
  *
  *  Returns the maximum height;
  */
-coordt_t getMaximumHeight(dimensions_t *dim);
+coordt_t getMaximumHeight(dimensions_t *dim){
+    assert(dim != NULL);
+    return dim.maxZ;
+}
