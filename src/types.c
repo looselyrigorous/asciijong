@@ -146,7 +146,11 @@ void rmTile(board_t *board, tile_t *tile){
  *	This function returns the tile, or
  *	NULL if it doesn't exist.
  */
-tile_t *getTileAt(board_t *board, double x, double y);
+tile_t *getTileAt(board_t *board, double x, double y){
+    
+    return getHighestTileInPosition(board, x, y);
+    
+}
 
 /*
  *	Get all tiles of  a  specific type
