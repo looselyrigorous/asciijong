@@ -170,7 +170,7 @@ board_t *getTilesOfType(board_t *board, unsigned int ttype);
  *	Returns the tile_r if it is valid,
  *	otherwise returns NULL.
  */
-tile_t *validateTileFromUser(double x, double y);
+tile_t *validateTileFromUser(board_t *board, double x, double y);
 
 /*
  *	Get  the  tile's  value  from  the
