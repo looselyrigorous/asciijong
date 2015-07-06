@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "types.h"
 #include "ui.h"
 #include "asciijong.h"
+
+#ifndef CONFIG_H
+#include "config.h"
+#define CONFIG_H
+#endif
 
 int main(int argc, const char **argv){
     board_t *board;
