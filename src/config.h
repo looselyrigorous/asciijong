@@ -6,7 +6,7 @@
 /*
  *	Array with all values returned to the UI 
  */
-char TileValues = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+char TileValues[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 /*
  *	Array length (max available tile types)
