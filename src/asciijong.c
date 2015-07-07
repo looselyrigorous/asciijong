@@ -5,9 +5,9 @@
 #include "ui.h"
 #include "asciijong.h"
 
-#ifndef CONFIG_H
+#ifndef _config_h
 #include "config.h"
-#define CONFIG_H
+#define _config_h
 #endif
 
 int main(int argc, const char **argv){
