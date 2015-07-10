@@ -15,7 +15,7 @@ int main(int argc, const char **argv){
     tile_t *tile0,*tile1;
     board = readBoardFromFile( (char *)argv[1] );
     if(!board){
-        showErrorMessageToUser("Could not read board data from file: %s", (char *)argv[1]);
+        showErrorMessageToUser("Could not read board data from file.");
         exit(-1);
     }
     while(1){
@@ -30,10 +30,10 @@ int main(int argc, const char **argv){
             tile1 = getTileFromUser( &board );
             while( !tilesMatch( &tile0, &tile1) && !canRemoveTile( &tile1) ){
                 if( !tilesMatch( &tile0, &tile1) ){
-                    showErrorMessageToUser("Tile %c does not match %c.", TileValues[tile1->ttype], TileValues[tile1->ttype]);
+                    showErrorMessageToUser("Tiles do not match.");
                 }
                 if( !canRemoveTile(&tile1) ){
-                    showErrorMessageToUser("Tile %c cannot be removed.", TileValues[tile1->ttype]);
+                    showErrorMessageToUser("This tile cannot be removed.");
                 }
                 tile1 = getTileFromUser( &board);
             }
