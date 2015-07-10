@@ -12,7 +12,7 @@
 #include "types.h"
 
 void showErrorMessageToUser(const char *errormsg) {
-	printf("%s\n", errormsg);
+	fprintf(stderr, "%s\n", errormsg);
 	return;
 }
 
@@ -30,22 +30,19 @@ tile_t *getTileFromUser(board_t *b) {
 
 void refreshBoard(board_t *b, tile_t *hl) {
 	coordt_t x=0.0, y=0.0;
-	int tmp=0;
+	int tmp=0, i=0;
 	dimensions_t *dim;
 	tile_t *tile, *tile_up, *tile_down;
-	char *l1=NULL, *l2=NULL, *l3=NULL,
-		 *l4=NULL, *l5=NULL;
+	char **l;
 
 	dim = getBoardDimensions(b);
-	
+
 	/* Memory allocation */
 	tmp = (int) getMaximumX(dim);
-	l1 = malloc(sizeof(char) * tmp);
-	l2 = malloc(sizeof(char) * tmp);
-	l3 = malloc(sizeof(char) * tmp);
-	l4 = malloc(sizeof(char) * tmp);
-	l5 = malloc(sizeof(char) * tmp);
-	assert(l1 && l2 && l3 && l4 && l5);
+	l = malloc(sizeof(char*) * 5);
+	for(i=0; i<5; i++)
+		l[i] = malloc(sizeof(char) * tmp);
+	assert(l && l[0] && l[1] && l[2] && l[3] && l[4]);
 
 
 	/* Refresh sequence */
@@ -59,41 +56,42 @@ void refreshBoard(board_t *b, tile_t *hl) {
 			}
 
 			if(tile != NULL) {
-				l1 = strcat(l1, "+---+");
-				l2 = strcat(l2, "|   |");
+				l[0] = strcat(l[0], "+---+");
+				l[1] = strcat(l[1], "|   |");
 
-				l3 = strcat(l3, "| ");
-				l3 = strcat(l3, getTileName(tile));
-				l3 = strcat(l3, " |");
-				
-				l4 = strcat(l4, "|   |");
-				l5 = strcat(l5, "+---+");
+				l[2] = strcat(l[2], "| ");
+				l[2] = strcat(l[2], getTileName(tile));
+				l[2] = strcat(l[2], " |");
+
+				l[3] = strcat(l[3], "|   |");
+				l[4] = strcat(l[4], "+---+");
 			} else {
 				if(tile_up != NULL) {
-					l1 = strcat(l1, "| ");
-					l1 = strcat(l1, getTileName(tile_up));
-					l1 = strcat(l1, " |");
-					l2 = strcat(l2, "|   |");
-					l3 = strcat(l3, "+---+");
+					l[0] = strcat(l[0], "| ");
+					l[0] = strcat(l[0], getTileName(tile_up));
+					l[0] = strcat(l[0], " |");
+					l[1] = strcat(l[1], "|   |");
+					l[2] = strcat(l[2], "+---+");
 				} else {
-					l1 = strcat(l1, "     ");
-					l2 = strcat(l2, "     ");
-					l3 = strcat(l3, "     ");
+					l[0] = strcat(l[0], "     ");
+					l[1] = strcat(l[1], "     ");
+					l[2] = strcat(l[2], "     ");
 				}
 
 				if(tile_down != NULL) {
-					l4 = strcat(l4, "+---+");
-					l5 = strcat(l5, "|   |");
+					l[3] = strcat(l[3], "+---+");
+					l[4] = strcat(l[4], "|   |");
 				} else {
-					l4 = strcat(l4, "     ");
-					l5 = strcat(l5, "     ");
+					l[3] = strcat(l[3], "     ");
+					l[4] = strcat(l[4], "     ");
 				}
 			}
 		}
-		printf("%s\n",l1);
-		printf("%s\n",l2);
-		printf("%s\n",l3);
-		printf("%s\n",l4);
-		printf("%s\n",l5);
+		for(i=0; i<5; i++)
+			printf("%s\n",l[i]);
 	}
+	for(i=0; i<5; i++)
+		free(l[i]);
+	free(l);
+	return;
 }
